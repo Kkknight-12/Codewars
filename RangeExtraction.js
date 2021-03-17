@@ -21,74 +21,75 @@ function solution(list){
  var sequence = 0;
  for ( var i = 0; i < limit ; i++ ) {
 
-   var diff1 = list[i+1] - list[i];
-   var diff2 = list[i+2] - list[i+1];
-   sequence = ( diff1 ===  1 && diff2 === 1 ) || 
-                 (diff1 === -1 && diff2 === -1 ) ? true : false;
-   if( sequence === true && list[i+3] !== undefined ) {
-     temp.push(list[i]);
-     i = i+2
-              if( diff1 ===  1 && diff2 === 1 ){
-                  for ( var i = i; i < lim; i++ ) {
-                      var diffp = list[i+1] - list[i];
-                      strike = (diffp === 1 ) ? true : false;
-                      if( strike == true && i !== lim ){
-                          i++
-                      }
-                      else if( strike == true && i === undefined ){
-                          temp = [ ...temp, list[i+1] ];
-                          temp = temp.join('-')
-                          results.push(temp);
-                          temp = [];
-                          break;
-                      }
-                      else{
-                          temp = [ ...temp, list[i] ];
-                          temp = temp.join('-')
-                          results.push(temp);
-                          temp = [];
-                          break;
-                      }
-                  }
-                  
-              }
-              if( diff1 ===  -1 && diff2 === -1  ){
-                  for ( var i = i; i <= lim; i++ ) {
-                      var diffn = list[i+1] - list[i];
-                      strike = (diffn === -1 ) ? true : false;
-                      if( strike == true && i !== lim ){
-                          i++
-                      }
-                      else if( strike == true && i === undefined ){
-                          temp = [ ...temp, list[i+1] ];
-                          temp = temp.join('-')
-                          results.push(temp);
-                          temp = [];
-                          break;
-                      }
-                      else {
-                          temp = [ ...temp, list[i] ];
-                          temp = temp.join('-')
-                          results.push(temp);
-                          temp = [];
-                          break;
-                      }
-                  }
-              }
-     continue;
- 
-   }else if( sequence === true && list[i+3] === undefined ){
-        temp = [ list[i], list[i+2] ];
-        temp = temp.join('-')
-        results.push(temp)
-        temp=[];
-        break;
-   }
-   else{
-       results.push(list[i]);
-   }
- }
- return String(results);
+
+    var diff1 = list[i+1] - list[i];
+    var diff2 = list[i+2] - list[i+1];
+    sequence = ( diff1 ===  1 && diff2 === 1 ) || 
+                    (diff1 === -1 && diff2 === -1 ) ? true : false;
+    if( sequence === true && list[i+3] !== undefined ) {
+        temp.push(list[i]);
+        i = i+2
+                if( diff1 ===  1 && diff2 === 1 ){
+                    for ( var i = i; i < lim; i++ ) {
+                        var diffp = list[i+1] - list[i];
+                        strike = (diffp === 1 ) ? true : false;
+                        if( strike == true && i !== lim ){
+                            i++
+                        }
+                        else if( strike == true && i === undefined ){
+                            temp = [ ...temp, list[i+1] ];
+                            temp = temp.join('-')
+                            results.push(temp);
+                            temp = [];
+                            break;
+                        }
+                        else{
+                            temp = [ ...temp, list[i] ];
+                            temp = temp.join('-')
+                            results.push(temp);
+                            temp = [];
+                            break;
+                        }
+                    }
+                    
+                }
+                if( diff1 ===  -1 && diff2 === -1  ){
+                    for ( var i = i; i <= lim; i++ ) {
+                        var diffn = list[i+1] - list[i];
+                        strike = (diffn === -1 ) ? true : false;
+                        if( strike == true && i !== lim ){
+                            i++
+                        }
+                        else if( strike == true && i === undefined ){
+                            temp = [ ...temp, list[i+1] ];
+                            temp = temp.join('-')
+                            results.push(temp);
+                            temp = [];
+                            break;
+                        }
+                        else {
+                            temp = [ ...temp, list[i] ];
+                            temp = temp.join('-')
+                            results.push(temp);
+                            temp = [];
+                            break;
+                        }
+                    }
+                }
+        continue;
+    
+    }else if( sequence === true && list[i+3] === undefined ){
+            temp = [ list[i], list[i+2] ];
+            temp = temp.join('-')
+            results.push(temp)
+            temp=[];
+            break;
+    }
+    else{
+        results.push(list[i]);
+    }
+    }
+    return String(results);
 
 };
 console.log(solution(Li));
